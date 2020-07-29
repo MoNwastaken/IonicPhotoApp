@@ -15,6 +15,10 @@ export class Tab2Page implements OnInit{
     this.photoService.loadSaved();
   }
 
+  loadSaved() {
+    this.photoService.loadSaved();
+  }
+
   addPhotoToGallery() {
     this.photoService.addNewToGallery();
   }
