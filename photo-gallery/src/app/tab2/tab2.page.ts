@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import {PhotoService} from "../services/photo.service";
 
 @Component({
@@ -6,9 +6,14 @@ import {PhotoService} from "../services/photo.service";
   templateUrl: 'tab2.page.html',
   styleUrls: ['tab2.page.scss']
 })
-export class Tab2Page {
+export class Tab2Page implements OnInit{
+  photos = this.photoService.photos;
 
   constructor(public photoService: PhotoService) {}
+
+  ngOnInit(): any {
+    this.photoService.loadSaved();
+  }
 
   addPhotoToGallery() {
     this.photoService.addNewToGallery();
