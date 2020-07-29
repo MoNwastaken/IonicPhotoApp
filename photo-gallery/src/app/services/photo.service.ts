@@ -24,10 +24,6 @@ export class PhotoService {
     const savedImageFile = await this.savePicture(capturedPhoto);
     this.photos.unshift(savedImageFile);
 
-    this.photos.unshift({
-      filepath: "soon...",
-      webviewPath: capturedPhoto.webPath
-    });
     Storage.set({
       key: this.PHOTO_STORAGE,
       value: JSON.stringify(this.photos.map(p => {
